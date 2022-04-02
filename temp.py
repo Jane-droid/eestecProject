@@ -3,6 +3,7 @@ import numpy as np
 import torch
 from transformers import BertForQuestionAnswering
 from transformers import BertTokenizer
+from textFromWebsite import google_search
 
 coqa = pd.read_json('http://downloads.cs.stanford.edu/nlp/data/coqa/coqa-train-v1.0.json')
 coqa.head()
@@ -140,15 +141,19 @@ def question_answer(question, text):
     
 
 while True:
-    text = input("Please enter your text: \n")
+    
+    question = input("Please enter your question: \n")
+    text = google_search(question)
     lines = text.splitlines();
-    question = input("\nPlease enter your question: \n")
     answers = []
     for par in lines:
         answers.append(question_answer(question, par))
-   
+    
+    print(answers)
+    answer = list(filter(lambda x: x != "Unable to find the answer to your question.", answer))
+
     answer = most_frequent(answers).capitalize()
-    print("Predicted answer:\n " + answer)
+    print("Predicted answer:\n" + answer)
     
     flag = True
     flag_N = False
