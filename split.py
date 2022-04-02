@@ -4,16 +4,25 @@ import nltk.data
 def split_in_sentences(data):
     my_list = nltk.tokenize.sent_tokenize(data)
     final_list = []
+    prev_buffer = ""
     buffer = ""
     count = 0
     for sentence in my_list:
-        if count < 7:
-            buffer = buffer + " " + sentence
-            count = count + 1
+        if len(buffer) > 512:    
+            final_list.append(prev_buffer)
+            prev_buffer = ""
+            buffer = sentence
+            count = 1
         else:
-            final_list.append(buffer)
-            buffer = ""
-            count = 0
+            if count < 7:
+                prev_buffer = buffer
+                buffer = buffer + " " + sentence
+                count = count + 1
+            else:
+                final_list.append(buffer)
+                buffer = ""
+                prev_buffer = ""
+                count = 0
             
     return final_list
 
