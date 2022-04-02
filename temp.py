@@ -4,6 +4,10 @@ import torch
 from transformers import BertForQuestionAnswering
 from transformers import BertTokenizer
 from textFromWebsite import google_search
+from split import split_in_sentences
+
+
+
 
 coqa = pd.read_json('http://downloads.cs.stanford.edu/nlp/data/coqa/coqa-train-v1.0.json')
 coqa.head()
@@ -125,6 +129,7 @@ def question_answer(question, text):
     #reconstructing the answer
     answer_start = torch.argmax(output.start_logits)
     answer_end = torch.argmax(output.end_logits)
+    answer = "[CLS]"
     if answer_end >= answer_start:
         answer = tokens[answer_start]
         for i in range(answer_start+1, answer_end+1):
@@ -144,14 +149,16 @@ while True:
     
     question = input("Please enter your question: \n")
     text = google_search(question)
-    lines = text.splitlines();
+    
+    lines = split_in_sentences(text);
     answers = []
     for par in lines:
         answers.append(question_answer(question, par))
     
+    answers = list(filter(lambda x: x != "Unable to find the answer to your question.", answers))
+    answers = list(filter(lambda x: len(x.split()) < 10, answers))
+    answers = list(filter(lambda x: (question.replace('?','').lower() in x) == False, answers))
     print(answers)
-    answer = list(filter(lambda x: x != "Unable to find the answer to your question.", answer))
-
     answer = most_frequent(answers).capitalize()
     print("Predicted answer:\n" + answer)
     

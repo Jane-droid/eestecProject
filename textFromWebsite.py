@@ -5,7 +5,7 @@ import requests
 def google_search(query):
     output=''
     
-    for url in search(query, tld="co.in", num = 1, stop = 1):
+    for url in search(query, tld="co.in", num = 2, stop = 2):
         res = requests.get(url)
         if res.status_code == 200:
             html_page = res.text
@@ -14,4 +14,5 @@ def google_search(query):
                 output = output + data.get_text()
             return output
 
+#print(google_search("Which ocean is Bermuda in?"))
 
