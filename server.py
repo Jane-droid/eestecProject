@@ -3,7 +3,7 @@ import string
 from urllib import response
 import flask
 from flask import jsonify, request
-from temp import get_answer
+from temp import get_answer, get_answer_multiple_choice
 from test_client_example import CompetitionBot
 
 app = flask.Flask(__name__)
@@ -21,6 +21,10 @@ def check_sanity():
 def question():
     question_contents = request.get_json() 
     query = question_contents["question_text"]
+    if question_contents["question_type"] == "multiple_choice":
+        answer= jsonify({
+            "answer": get_answer_multiple_choice(query, question_contents["answer_choices"]).capitalize()
+        })
     answer= jsonify({
         "answer": get_answer(query).capitalize()
     })
