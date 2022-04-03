@@ -1,0 +1,329 @@
+{
+    "questions": [
+        {
+            "question_id": "1",
+            "question": {
+                "question_text": "Who became the first king of a united Italy in 1861?",
+                "question_type": "direct_answer",
+                "question_category": "History",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Victor Emanuel"
+        },
+        {
+            "question_id": "2",
+            "question": {
+                "question_text": "Who discovered penicillin?",
+                "question_type": "direct_answer",
+                "question_category": "History",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Alexander Fleming"
+        },
+        {
+            "question_id": "3",
+            "question": {
+                "question_text": "Where is the northernmost point of land in the world?",
+                "question_type": "direct_answer",
+                "question_category": "Geography",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Greenland"
+        },
+        {
+            "question_id": "4",
+            "question": {
+                "question_text": "Which actor plays Private Ryan in Saving Private Ryan?",
+                "question_type": "direct_answer",
+                "question_category": "Movies",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Matt Damon"
+        },
+        {
+            "question_id": "5",
+            "question": {
+                "question_text": "What is the largest country in South America?",
+                "question_type": "direct_answer",
+                "question_category": "Geography",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Brazil"
+        },
+        {
+            "question_id": "6",
+            "question": {
+                "question_text": "Which is the only country to have won 3 Eurovision Song Contests in a row?",
+                "question_type": "direct_answer",
+                "question_category": "Music",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Ireland"
+        },
+        {
+            "question_id": "7",
+            "question": {
+                "question_text": "Who is the main character in Red Dead Redemption 2?",
+                "question_type": "direct_answer",
+                "question_category": "Gaming",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Arthur Morgan"
+        },
+        {
+            "question_id": "8",
+            "question": {
+                "question_text": "What was the name of the first computer game?",
+                "question_type": "direct_answer",
+                "question_category": "Gaming",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "SpaceWar!"
+        },
+        {
+            "question_id": "9",
+            "question": {
+                "question_text": "Who is the developer of Cyberpunk 2077?",
+                "question_type": "direct_answer",
+                "question_category": "Gaming",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "CD Projekt RED"
+        },
+        {
+            "question_id": "10",
+            "question": {
+                "question_text": "What's the name of Simba's nasty uncle in Lion King?",
+                "question_type": "direct_answer",
+                "question_category": "Movies",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Scar"
+        },
+        {
+            "question_id": "11",
+            "question": {
+                "question_text": "Who wrote the screenplay for Rocky?",
+                "question_type": "direct_answer",
+                "question_category": "Movies",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Sylvester Stallone"
+        },
+        {
+            "question_id": "12",
+            "question": {
+                "question_text": "Who is the lead singer of band Vita de vie?",
+                "question_type": "direct_answer",
+                "question_category": "Music",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Adi Despot"
+        },
+        {
+            "question_id": "13",
+            "question": {
+                "question_text": "When did Moldova gain its independence?",
+                "question_type": "direct_answer",
+                "question_category": "History",
+                "answer_choices": [],
+                "answer_type": "numeric"
+            },
+            "answer": "1991"
+        },
+        {
+            "question_id": "14",
+            "question": {
+                "question_text": "Which ocean is Bermuda in?",
+                "question_type": "direct_answer",
+                "question_category": "Geography",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Atlantic"
+        },
+        {
+            "question_id": "15",
+            "question": {
+                "question_text": "Which is the capital of Cuba?",
+                "question_type": "direct_answer",
+                "question_category": "Geography",
+                "answer_choices": [],
+                "answer_type": "text"
+            },
+            "answer": "Havana"
+        },
+        {
+            "question_id": "16",
+            "question": {
+                "question_text": "How many planets are in our solar system?",
+                "question_type": "multiple_choice",
+                "question_category": "unspecified",
+                "answer_choices": [
+                    "7",
+                    "8",
+                    "9",
+                    "10"
+                ],
+                "answer_type": "numeric"
+            },
+            "answer": "8"
+        },
+        {
+            "question_id": "17",
+            "question": {
+                "question_text": "In what country can you visit Machu Picchu?",
+                "question_type": "multiple_choice",
+                "question_category": "Geography",
+                "answer_choices": [
+                    "Bolivia",
+                    "Peru",
+                    "Columbia",
+                    "Chile"
+                ],
+                "answer_type": "text"
+            },
+            "answer": "Peru"
+        },
+        {
+            "question_id": "18",
+            "question": {
+                "question_text": "What is the nickname of the playable character in Skyrim?",
+                "question_type": "multiple_choice",
+                "question_category": "Gaming",
+                "answer_choices": [
+                    "Dragonborn",
+                    "Loki",
+                    "Gigi",
+                    "Alex"
+                ],
+                "answer_type": "text"
+            },
+            "answer": "Dragonborn"
+        },
+        {
+            "question_id": "19",
+            "question": {
+                "question_text": "What was Elvis Presley's first No. 1 hit in the United States?",
+                "question_type": "multiple_choice",
+                "question_category": "Music",
+                "answer_choices": [
+                    "Heartbreak Hotel",
+                    "Can't Help Falling In Love",
+                    "Burning Love",
+                    "Suspicious Minds"
+                ],
+                "answer_type": "text"
+            },
+            "answer": "Heartbreak Hotel"
+        },
+        {
+            "question_id": "20",
+            "question": {
+                "question_text": "What is the capital of Lithuania?",
+                "question_type": "multiple_choice",
+                "question_category": "Geography",
+                "answer_choices": [
+                    "Praga",
+                    "Vilnius",
+                    "Kapan",
+                    "Utena"
+                ],
+                "answer_type": "text"
+            },
+            "answer": "Vilnius"
+        },
+        {
+            "question_id": "21",
+            "question": {
+                "question_text": "What nation produces two thirds of the world's vanilla?",
+                "question_type": "multiple_choice",
+                "question_category": "Geography",
+                "answer_choices": [
+                    "Madagascar",
+                    "Cuba",
+                    "Spain",
+                    "Brasil"
+                ],
+                "answer_type": "text"
+            },
+            "answer": "Madagascar"
+        },
+        {
+            "question_id": "22",
+            "question": {
+                "question_text": "Who invented C language?",
+                "question_type": "multiple_choice",
+                "question_category": "unspecified",
+                "answer_choices": [
+                    "Bjarne Stroustrup",
+                    "Dennis Ritchie",
+                    "Bill Gates",
+                    "James Gosling"
+                ],
+                "answer_type": "text"
+            },
+            "answer": "Dennis Ritchie"
+        },
+        {
+            "question_id": "23",
+            "question": {
+                "question_text": "What percentage of the River Nile is located in Egypt?",
+                "question_type": "multiple_choice",
+                "question_category": "Geography",
+                "answer_choices": [
+                    "22",
+                    "95",
+                    "9",
+                    "83"
+                ],
+                "answer_type": "numeric"
+            },
+            "answer": "22"
+        },
+        {
+            "question_id": "24",
+            "question": {
+                "question_text": "Who was the second emperor of Rome?",
+                "question_type": "multiple_choice",
+                "question_category": "History",
+                "answer_choices": [
+                    "Tiberius",
+                    "Caesar",
+                    "Commodus",
+                    "Caligula"
+                ],
+                "answer_type": "text"
+            },
+            "answer": "Tiberius"
+        },
+        {
+            "question_id": "25",
+            "question": {
+                "question_text": "What Japanese emperor reigned during World War II?",
+                "question_type": "multiple_choice",
+                "question_category": "History",
+                "answer_choices": [
+                    "Daigo",
+                    "Antoku",
+                    "Akihito",
+                    "Hirohito"
+                ],
+                "answer_type": "text"
+            },
+            "answer": "Hirohito"
+        }
+    ]
+}

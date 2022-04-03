@@ -1,28 +1,19 @@
 import nltk.data
 #from textFromWebsite import google_search
 
-def split_in_sentences(data):
+def split_in_sentences(data, question):
     my_list = nltk.tokenize.sent_tokenize(data)
     final_list = []
-    prev_buffer = ""
     buffer = ""
     count = 0
     for sentence in my_list:
-        if len(buffer) > 512:    
-            final_list.append(prev_buffer)
-            prev_buffer = ""
-            buffer = sentence
-            count = 1
+        if count < 7:
+            buffer = buffer + " " + sentence
+            count = count + 1
         else:
-            if count < 7:
-                prev_buffer = buffer
-                buffer = buffer + " " + sentence
-                count = count + 1
-            else:
-                final_list.append(buffer)
-                buffer = ""
-                prev_buffer = ""
-                count = 0
+            final_list.append(buffer)
+            buffer = ""
+            count = 0
             
     return final_list
 

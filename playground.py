@@ -8,14 +8,29 @@ model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-
 tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
 
 
+def most_frequent(List):
+    if len(List) == 0:
+        return ''
+    counter = 0
+    el = List[0]
+     
+    for i in List:
+        curr_frequency = List.count(i)
+        if(curr_frequency> counter):
+            counter = curr_frequency
+            el = i
+ 
+    return el
+
+
 def question_answer(question, text):
     
     #tokenize question and text as a pair
     input_ids = tokenizer.encode(question, text)
-    
+
     if(len(input_ids) > 512):
         return "Unable to find the answer to your question."
-    
+
     #string version of tokenized ids
     tokens = tokenizer.convert_ids_to_tokens(input_ids)
     
@@ -49,18 +64,19 @@ def question_answer(question, text):
     if answer.startswith("[CLS]"):
         answer = "Unable to find the answer to your question."
     
+    #print("\nPredicted answer:\n{}".format(answer.capitalize()))
     return answer
     
 
-def get_answer(question):
+while True:
     
+    question = input("Please enter your question: \n")
     text = google_search(question)
     
     lines = split_in_sentences(text, question)
     answers = {}
     final_answer = "idk"
     for par in lines:
-        print(par)
         curr_answer = question_answer(question, par)
         if curr_answer in answers:
             answers[curr_answer] += 1
@@ -72,10 +88,9 @@ def get_answer(question):
                 if curr_answer != "[SEP]":
                     if len(curr_answer.split()) < 10:
                         if (question.replace('?','').lower() in curr_answer) == False:
-                            print(curr_answer)
                             answers[curr_answer] = 1
     if final_answer != "idk":
-        return final_answer.capitalize()
+        print("Predicted answer:\n" + final_answer.capitalize())
     else:
         maxim = 0
         key = ""
@@ -83,6 +98,15 @@ def get_answer(question):
             if freq > maxim:
                 maxim = freq
                 key = answer
-        return key.capitalize()
+        print("Predicted answer:\n" + key.capitalize())
 
+    flag = True
+    flag_N = False
+    
+    more = input("Do you want to choose another text?[Y/N]\n")
+    if more[0] == 'N':
+        flag_N = True
+            
+    if flag_N == True:
+        break
 

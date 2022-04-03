@@ -1,2 +1,0 @@
-# eestecProject
-TriviaBOT

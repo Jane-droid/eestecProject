@@ -1,0 +1,13 @@
+Dependencies:
+- requests
+- 
+
+How to use:
+
+1. Start your server
+2. Edit resources/test_bots.json and add your IP
+3. run `python3 test_client_example.py --test-bots resources/test_bots.json --question-set resources/sample_questions_and_answers.json`
+4. ???
+5. Profit
+
+Check outputs folder in same dir.

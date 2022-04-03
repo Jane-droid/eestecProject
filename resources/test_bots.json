@@ -1,0 +1,8 @@
+{
+    "bots": [
+        {
+            "team_name": "Buturuga",
+            "address": "127.0.0.1:5000"
+        }
+    ]
+}
