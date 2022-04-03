@@ -2,10 +2,11 @@ import torch
 from textFromWebsite import google_search
 from split import split_in_sentences
 from transformers import BertForQuestionAnswering
-from transformers import BertTokenizer
+from transformers import BertTokenizerFast
+from multiple_choice import is_multiple_choice_answer
 
 model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
-tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
+tokenizer = BertTokenizerFast.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
 
 
 def question_answer(question, text):
@@ -60,7 +61,6 @@ def get_answer(question):
     answers = {}
     final_answer = "idk"
     for par in lines:
-        print(par)
         curr_answer = question_answer(question, par)
         if curr_answer in answers:
             answers[curr_answer] += 1
@@ -72,7 +72,6 @@ def get_answer(question):
                 if curr_answer != "[SEP]":
                     if len(curr_answer.split()) < 10:
                         if (question.replace('?','').lower() in curr_answer) == False:
-                            print(curr_answer)
                             answers[curr_answer] = 1
     if final_answer != "idk":
         return final_answer.capitalize()
@@ -84,5 +83,32 @@ def get_answer(question):
                 maxim = freq
                 key = answer
         return key.capitalize()
+    
+def get_answer_multiple_choice(question, choices):
+    
+    text = google_search(question)
+    answers = {}
+    for choice in choices:
+        answers[choice] = 0
+    lines = split_in_sentences(text, question)
+    for par in lines:
+        curr_answer = question_answer(question, par)
+        if len(curr_answer.split()) < 10:
+            for word in curr_answer.split():
+                for choice in choices:
+                    if word in choice:
+                        answers[choice] += 1
+    max = 0
+    answer = ''
+    for choice in choices:
+        if answers[choice] > max:
+            max = answer[choice]
+            answer = choice
+    
+    return answer
+            
+        
+            
+    
 
 
