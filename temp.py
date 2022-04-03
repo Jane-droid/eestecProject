@@ -3,7 +3,7 @@ from textFromWebsite import google_search
 from split import split_in_sentences
 from transformers import BertForQuestionAnswering
 from transformers import BertTokenizerFast
-from multiple_choice import is_multiple_choice_answer
+from year import recognise_year
 
 model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
 tokenizer = BertTokenizerFast.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
@@ -46,7 +46,6 @@ def question_answer(question, text):
                 answer += tokens[i][2:]
             else:
                 answer += " " + tokens[i]
-                
     if answer.startswith("[CLS]"):
         answer = "Unable to find the answer to your question."
     
@@ -74,6 +73,8 @@ def get_answer(question):
                         if (question.replace('?','').lower() in curr_answer) == False:
                             answers[curr_answer] = 1
     if final_answer != "idk":
+        if question.split()[0] == "When":
+            final_answer = recognise_year(final_answer)
         return final_answer.capitalize()
     else:
         maxim = 0
@@ -82,6 +83,8 @@ def get_answer(question):
             if freq > maxim:
                 maxim = freq
                 key = answer
+        if question.split()[0] == "When":
+            key = recognise_year(key)
         return key.capitalize()
     
 def get_answer_multiple_choice(question, choices):
@@ -96,19 +99,16 @@ def get_answer_multiple_choice(question, choices):
         if len(curr_answer.split()) < 10:
             for word in curr_answer.split():
                 for choice in choices:
-                    if word in choice:
+                    if word.lower() in choice.lower():
                         answers[choice] += 1
     max = 0
-    answer = ''
+    answer = 'idk'
     for choice in choices:
         if answers[choice] > max:
-            max = answer[choice]
+            max = answers[choice]
             answer = choice
-    
+    if answer != "idk" and question.split()[0] == "When":
+        answer = recognise_year(answer)
     return answer
             
-        
-            
-    
-
 

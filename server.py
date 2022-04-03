@@ -25,10 +25,11 @@ def question():
         answer= jsonify({
             "answer": get_answer_multiple_choice(query, question_contents["answer_choices"]).capitalize()
         })
-    answer= jsonify({
-        "answer": get_answer(query).capitalize()
-    })
+    else: 
+        answer= jsonify({
+            "answer": get_answer(query).capitalize()
+        })
     answer.status_code=200
     return answer
 
-app.run(port=5000)
+app.run(port=5000,host="0.0.0.0")
